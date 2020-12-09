@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_width="@dimen/_90sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:background="@drawable/border_cancle"
+        android:layout_height="@dimen/_150sdp">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="@dimen/_85sdp"
+            android:layout_height="@dimen/_145sdp"
+            android:scaleType="fitXY"
+            android:id="@+id/ivImageProductChoose"/>
+    </RelativeLayout>
+</layout>

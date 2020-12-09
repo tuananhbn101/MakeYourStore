@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_light">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llFind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvLuaChonBanHang"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/background_main_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_weight="0.1"
+                    android:src="@drawable/ic_baseline_search_24" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_weight="0.8"
+                    android:background="@color/white"
+                    android:hint="@string/entor_your_name"
+                    android:inputType="text"
+                    android:singleLine="true" />
+
+                <ImageView
+                    android:id="@+id/btnFilter"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_weight="0.1"
+                    android:src="@drawable/qr_icon" />
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/vfQC1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llFind"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_10sdp">
+
+                <ViewFlipper
+                    android:id="@+id/vfQC"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:src="@drawable/anhnen"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/llHot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/vfQC1"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/background_main_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_30sdp"
+                        android:background="@drawable/backgtound_hot_product"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/_7sdp"
+                        android:paddingRight="@dimen/_50sdp"
+                        android:text="Sản phẩm hot"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_18sdp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="@dimen/_10sdp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_65sdp"
+                            android:src="@drawable/em908" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="clip_horizontal|bottom"
+                            android:text="@string/mouse_product"
+                            android:textSize="@dimen/_10sdp" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_margin="@dimen/_5sdp"
+
+                        android:layout_weight="1"
+                        app:cardCornerRadius="@dimen/_10sdp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_65sdp"
+                            android:src="@drawable/banphim3" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="clip_horizontal|bottom"
+                            android:text="@string/key_board"
+                            android:textSize="@dimen/_10sdp" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="@color/gray_light"
+                        app:cardCornerRadius="@dimen/_10sdp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/other_product"
+                            android:textSize="@dimen/_15sdp"
+                            android:textStyle="bold" />
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvBestSale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llHot"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/_3sdp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/tvHotProduct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/_10sdp"
+                        app:cardElevation="@dimen/_10sdp">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_30sdp"
+                            android:background="@drawable/backgtound_hot_product"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/_7sdp"
+                            android:paddingRight="@dimen/_50sdp"
+                            android:text="@string/best_sale_product"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_17sdp"
+                            android:textStyle="bold" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/tvXemThem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:text="@string/view_all" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvHotProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvHotProduct"
+                        android:layout_margin="@dimen/_5sdp" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cvBestSale"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:id="@+id/keyboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:background="@drawable/background_main_content">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/tvKeyBoardProduct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="@color/login_hint_color"
+                        app:cardCornerRadius="@dimen/_10sdp"
+                        app:cardElevation="@dimen/_5sdp">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginLeft="@dimen/_7sdp"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center_vertical"
+                            android:paddingRight="@dimen/_50sdp"
+                            android:text="@string/key_board"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_18sdp"
+                            android:textStyle="bold" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/tvXemTatCaSale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:text="@string/view_all" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvKeyBoardProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvKeyBoardProduct"
+                        android:layout_margin="@dimen/_5sdp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/keyboard"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:background="@drawable/background_main_content">
+
+                    <TextView
+                        android:id="@+id/tvXemTatCaChuot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:text="@string/view_all" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/tvMouseProduct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="@color/login_hint_color"
+                        app:cardCornerRadius="@dimen/_10sdp"
+                        app:cardElevation="@dimen/_5sdp">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginLeft="@dimen/_7sdp"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center_vertical"
+                            android:paddingRight="@dimen/_50sdp"
+                            android:text="@string/mouse_product"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_18sdp"
+                            android:textStyle="bold" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvMouseProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvMouseProduct"
+                        android:layout_margin="@dimen/_2sdp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/keyboard"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:background="@drawable/background_main_content">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/tvOther"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/_50sdp"
+                        app:cardBackgroundColor="@color/login_hint_color"
+                        app:cardCornerRadius="@dimen/_10sdp"
+                        app:cardElevation="@dimen/_5sdp">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_30sdp"
+                            android:gravity="center_vertical"
+                            android:paddingRight="@dimen/_50sdp"
+                            android:layout_marginLeft="@dimen/_7sdp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/other_product"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_18sdp"
+                            android:textStyle="bold" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvOtherProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvOther"
+                        android:layout_margin="@dimen/_5sdp" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

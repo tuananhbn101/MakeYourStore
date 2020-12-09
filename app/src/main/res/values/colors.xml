@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gray_light">#E1E1E1</color>
+    <color name="purple_200">#C199F3</color>
+    <color name="purple_500">#8FA6F8</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#A0A1A1</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="login_background_color">#CBF8D211</color>
+    <color name="login_hint_color">#54B1E1</color>
+    <color name="price_color">#FA6565</color>
+    <color name="main_color">#FF0048</color>
+</resources>
