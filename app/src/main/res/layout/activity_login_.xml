@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rl_login"
-        android:background="@color/main_color">
+        android:background="#24B6FA">
 
         <RelativeLayout
             android:id="@+id/logoLogin"
@@ -111,44 +111,36 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/fogotPass"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llPassword"
                 android:layout_margin="@dimen/_15sdp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvForgotPass"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_10sdp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="@string/forgot_password"
+                    android:textSize="@dimen/_13sdp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:text="@string/login_with_admin"
                     android:textColor="@color/white"
-                    android:textStyle="italic" />
-
-                <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="@color/white" />
-
-                <TextView
-                    android:id="@+id/tvCreateAccount"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_10sdp"
-                    android:layout_weight="1"
-                    android:gravity="left"
-                    android:text="@string/create_a_new_account"
-                    android:textColor="@color/white"
-                    android:textStyle="italic" />
-
-            </LinearLayout>
+                    />
+                <CheckBox
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/checkAdmin"
+                    android:background="@drawable/border_cancle"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/btnSingIn"

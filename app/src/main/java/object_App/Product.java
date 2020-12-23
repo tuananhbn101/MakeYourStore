@@ -1,18 +1,12 @@
 package object_App;
 
 public class Product {
-    private String ID;
-    private String nameProduct;
-    private long price;
-    private int amount;
-    private String type;
-    private String describe;
-    private int image;
-    private String producer;
+    private int ID;
 
-    public Product(String ID, String nameProduct, long price, int amount, String type, String describe, int image, String producer) {
+    public Product(int ID, String nameProduct, long importprice, long price, int amount, String type, String describe, String image, String producer) {
         this.ID = ID;
         this.nameProduct = nameProduct;
+        this.importPrice = importprice;
         this.price = price;
         this.amount = amount;
         this.type = type;
@@ -21,11 +15,20 @@ public class Product {
         this.producer = producer;
     }
 
-    public String getID() {
+    private String nameProduct;
+    private long importPrice;
+    private long price;
+    private int amount;
+    private String type;
+    private String describe;
+    private String image;
+    private String producer;
+
+    public int getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 
@@ -35,6 +38,14 @@ public class Product {
 
     public void setNameProduct(String nameProduct) {
         this.nameProduct = nameProduct;
+    }
+
+    public long getImportprice() {
+        return importPrice;
+    }
+
+    public void setImportprice(long importprice) {
+        this.importPrice = importprice;
     }
 
     public long getPrice() {
@@ -69,11 +80,11 @@ public class Product {
         this.describe = describe;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

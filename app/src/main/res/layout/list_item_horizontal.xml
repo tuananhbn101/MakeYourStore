@@ -1,51 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginRight="@dimen/_5sdp">
 
-   <androidx.cardview.widget.CardView
-       android:layout_width="wrap_content"
-       app:cardElevation="@dimen/_8sdp"
-       android:layout_height="wrap_content">
-       <RelativeLayout
-           android:layout_width="@dimen/_80sdp"
-           android:background="@drawable/border_cancle"
-           android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/_8sdp">
 
-           <ImageView
-               android:id="@+id/ivImageProduct"
-               android:layout_width="@dimen/_75sdp"
-               android:layout_margin="@dimen/_5sdp"
-               android:layout_height="@dimen/_120sdp"
-               android:scaleType="fitXY"
-               android:src="@drawable/chuot2" />
+        <RelativeLayout
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_cancle">
 
-           <TextView
-               android:id="@+id/tvNameProduct"
-               android:layout_width="match_parent"
-               android:layout_height="@dimen/_20sdp"
-               android:paddingLeft="@dimen/_5sdp"
-               android:paddingRight="@dimen/_5sdp"
-               android:layout_below="@+id/ivImageProduct"
-               android:fontFamily="sans-serif-condensed-medium"
-               android:gravity="center"
-               android:singleLine="true"
-               android:text="Tên sản phẩm"
-               android:textSize="@dimen/_12sdp" />
+            <ImageView
+                android:id="@+id/ivImageProduct"
+                android:layout_width="@dimen/_95sdp"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/chuot2" />
 
-           <TextView
-               android:id="@+id/tvPrice"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_below="@+id/tvNameProduct"
-               android:fontFamily="sans-serif-condensed-medium"
-               android:gravity="center"
-               android:text="VND"
-               android:textColor="@color/price_color"
-               android:textSize="@dimen/_13sdp" />
+            <TextView
+                android:id="@+id/tvNameProduct"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_below="@+id/ivImageProduct"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
+                android:paddingLeft="@dimen/_5sdp"
+                android:paddingRight="@dimen/_5sdp"
+                android:singleLine="true"
+                android:text="Tên sản phẩm"
+                android:textSize="@dimen/_13sdp" />
 
-       </RelativeLayout>
-   </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_below="@+id/tvNameProduct"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
+                android:text="VND"
+                android:textColor="@color/price_color"
+                android:textSize="@dimen/_13sdp" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_below="@+id/tvNameProduct"
+                android:layout_marginLeft="@dimen/_75sdp"
+                android:background="@color/gray_light"/>
+
+            <ImageView
+                android:id="@+id/btnAdd"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_below="@+id/tvNameProduct"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/add_to_cart" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 </RelativeLayout>

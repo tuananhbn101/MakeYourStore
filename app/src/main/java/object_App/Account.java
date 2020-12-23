@@ -9,21 +9,21 @@ public class Account {
     private String password;
     private String fullName;
     private String dateOfBirth;
-    private String sex;
     private String phone;
-    private String question;
-    private String answer;
+    private String email;
+    private String homeTown;
+    private int permission;
 
-
-    public Account(int ID, String userName, String password, String fullName, String dateOfBirth, String phone, String question, String answer) {
+    public Account(int ID, String userName, String password, String fullName, String dateOfBirth, String phone, String email, String homeTown, int permission) {
         this.ID = ID;
         this.userName = userName;
         this.password = password;
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
         this.phone = phone;
-        this.question = question;
-        this.answer = answer;
+        this.email = email;
+        this.homeTown = homeTown;
+        this.permission = permission;
     }
 
     public int getID() {
@@ -74,20 +74,28 @@ public class Account {
         this.phone = phone;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getEmail() {
+        return email;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getAnswer() {
-        return answer;
+    public String getHomeTown() {
+        return homeTown;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setHomeTown(String homeTown) {
+        this.homeTown = homeTown;
+    }
+
+    public int getPermission() {
+        return permission;
+    }
+
+    public void setPermission(int permission) {
+        this.permission = permission;
     }
 
     public boolean checkUserName() {

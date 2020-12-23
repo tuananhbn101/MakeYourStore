@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/purple_200"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:id="@+id/cvThongtinSP"
+            app:cardBackgroundColor="@color/white"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_height="@dimen/_50sdp">
+            <TextView
+                android:id="@+id/tvThongtinSanPham"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@string/product_information"
+                android:textColor="@color/login_hint_color"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
+            android:id="@+id/llFindProduct"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_below="@+id/cvThongtinSP"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/etSearchProduct"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_weight="0.8"
+                android:background="@color/white"
+                android:hint="@string/entor_your_name"
+                android:inputType="text"
+                android:singleLine="true" />
+
+            <ImageView
+                android:id="@+id/btnSearchProduct"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_weight="0.1"
+                android:src="@drawable/ic_baseline_search_24" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/spinnerSortEmployee"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llFindProduct"
+            android:layout_alignParentRight="true"
+            app:cardBackgroundColor="@color/white">
+
+            <TextView
+                android:id="@+id/tvDsProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinnerSortEmployee"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:text="Danh sách sản phẩm"
+                android:textColor="@color/purple_500"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerSortProduct"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/_5sdp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProducts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_below="@+id/spinnerSortEmployee"
+            android:layout_marginTop="@dimen/_5sdp" />
+
+        <TextView
+            android:id="@+id/tvNoProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Không tìm thấy sản phẩm nào"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvNoProduct"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Vui lòng bấm vào tab Thêm -> Thêm sản phẩm"
+            android:textSize="@dimen/_13sdp" />
+        <!--        <TextView-->
+        <!--            android:id="@+id/btn"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:text="Manage product"/>-->
+    </RelativeLayout>
+</layout>

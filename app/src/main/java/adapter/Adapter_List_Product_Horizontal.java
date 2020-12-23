@@ -1,5 +1,8 @@
 package adapter;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.makeyourstore.R;
+import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -19,11 +23,17 @@ import object_App.Product;
 
 public class Adapter_List_Product_Horizontal extends RecyclerView.Adapter<Adapter_List_Product_Horizontal.ViewHolder> {
     List<Product> productList;
+    ClickImageProductToShow clickImageProductToShow;
+    private Context context;
 
-    public Adapter_List_Product_Horizontal(List<Product> products) {
-        this.productList = products;
+    public Adapter_List_Product_Horizontal(List<Product> productList, Context context) {
+        this.productList = productList;
+        this.context = context;
     }
 
+    public void setClickImageProductToShow (ClickImageProductToShow clickImageProductToShow){
+        this.clickImageProductToShow = clickImageProductToShow;
+    }
     @NonNull
     @Override
     public Adapter_List_Product_Horizontal.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,8 +49,21 @@ public class Adapter_List_Product_Horizontal extends RecyclerView.Adapter<Adapte
         holder.tvName.setText(product.getNameProduct());
         DecimalFormat formatter = new DecimalFormat("###,###,###");
         String price = formatter.format(product.getPrice())+" đ";
-        holder.tvPrice.setText("Giá: "+price);
-       holder.ivProduct.setImageResource(product.getImage());
+        holder.tvPrice.setText(price+"");
+
+        Picasso.with(context).load("file://"+product.getImage()).into(holder.ivProduct);
+        holder.ivProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickImageProductToShow.clickImageProduct(position);
+            }
+        });
+        holder.ivAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickImageProductToShow.clickAdd(product.getID());
+            }
+        });
     }
 
     @Override
@@ -51,11 +74,13 @@ public class Adapter_List_Product_Horizontal extends RecyclerView.Adapter<Adapte
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvName,tvPrice;
         ImageView ivProduct;
+        ImageView ivAdd;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvNameProduct);
             tvPrice = itemView.findViewById(R.id.tvPrice);
             ivProduct = itemView.findViewById(R.id.ivImageProduct);
+            ivAdd= itemView.findViewById(R.id.btnAdd);
         }
     }
 }

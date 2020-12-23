@@ -54,8 +54,8 @@ public class Forgot_Password_Fragment extends Fragment {
                 for (Account account : accountList
                 ) {
                     if (binding.etUsName.getText().toString().equalsIgnoreCase(account.getUserName())
-                            && binding.etQtn.getText().toString().equalsIgnoreCase(account.getQuestion())
-                            && binding.etAsr.getText().toString().equalsIgnoreCase(account.getAnswer())) {
+                            && binding.etQtn.getText().toString().equalsIgnoreCase(account.getHomeTown())
+                            && binding.etAsr.getText().toString().equalsIgnoreCase(account.getEmail())) {
                         userPassword += account.getPassword();
                         dem++;
                     }

@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -40,90 +41,132 @@
             android:orientation="vertical">
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_30sdp"
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_30sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:background="@drawable/boder_list_don_hang">
+                app:cardCornerRadius="@dimen/_5sdp">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.2"
-                    android:gravity="center"
-                    android:text="Ngày giao dich" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/black" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Mã đơn hàng" />
+                        android:background="@drawable/boder_list_don_hang">
 
-                <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/black" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2"
+                            android:gravity="center"
+                            android:text="Ngày giao dich" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Sản phẩm" />
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black" />
 
-                <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/black" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Mã đơn hàng" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Thành tiền" />
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black" />
 
-            <ListView
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:gravity="center"
+                            android:text="Tổng giá nhập" />
+
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:gravity="center"
+                            android:text="Tổng giá bán" />
+                    </LinearLayout>
+
+                    <ListView
+                        android:id="@+id/lvReport"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_390sdp"
+                        android:layout_marginTop="@dimen/_29sdp"
+                        android:background="@drawable/boder_list_don_hang2" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="529dp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:background="@drawable/boder_list_don_hang2"
-                android:paddingBottom="@dimen/_5sdp" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="Số lượng giao dịch: "
+                    android:textSize="@dimen/_13sdp" />
+
+                <TextView
+                    android:id="@+id/soluonggiaodich"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:text="1"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/_13sdp" />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
 
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
-                    android:layout_margin="@dimen/_10sdp"
                     android:layout_width="0dp"
-                    android:layout_weight="2.5"
                     android:layout_height="@dimen/_20sdp"
-                    android:text="Số lượng giao dịch: "
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
                     android:gravity="right"
-                    android:textSize="@dimen/_15sdp"
-                    android:textColor="@color/main_color"/>
+                    android:text="Tổng lãi: "
+                    android:textSize="@dimen/_13sdp" />
+
                 <TextView
+                    android:id="@+id/tvInterestRate"
                     android:layout_width="0dp"
-                    android:layout_weight="0.5"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_weight="1"
                     android:text="150000đ"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_15sdp"
-                    android:textColor="@color/main_color"/>
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/_13sdp" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
+
 </layout>

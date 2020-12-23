@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout
+        android:padding="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/border_cancle"
+        android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cập nhật thông tin"
+        android:textSize="@dimen/_18sdp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:textColor="@color/purple_500"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name_product"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13sdp" />
+
+    <EditText
+        android:id="@+id/etProductNameToUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:singleLine="true"
+        android:textSize="@dimen/_12sdp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13sdp" />
+
+    <EditText
+        android:id="@+id/etProductPriceToUpdate"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp" />
+
+    <TextView
+            android:layout_width="@dimen/_100sdp"
+        android:layout_height="wrap_content"
+        android:text="@string/amount"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13sdp" />
+
+    <EditText
+        android:id="@+id/etProductAmountToUpdate"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cập nhật"
+            android:textSize="@dimen/_13sdp"
+            android:textColor="@color/white"
+            android:background="@color/login_hint_color"
+            android:id="@+id/btnCapNhat"
+            android:textAllCaps="false"
+            android:layout_gravity="right"
+            android:layout_margin="@dimen/_10sdp"/>
+    </LinearLayout>
+</RelativeLayout>

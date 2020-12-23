@@ -1,18 +1,18 @@
 <resources>
-    <string name="user_name">"User Name "</string>
+    <string name="user_name">User name</string>
     <string name="password">"Password "</string>
     <string name="sig_in">"Sig in "</string>
-    <string name="forgot_password">Forgot password</string>
+    <string name="login_with_admin">Log in as an administrator</string>
     <string name="create_a_new_account">Create a new account</string>
     <string name="app_name">Manage Your Store</string>
     <string name="full_name">Full name</string>
-    <string name="date_of_birth">Date of birth :</string>
-    <string name="phone">Phone :</string>
-    <string name="question">Question</string>
-    <string name="answer">Answer</string>
-    <string name="submit">Submit</string>
-    <string name="product">Your product</string>
-    <string name="best_sale_product">Best sale product</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="phone">Phone</string>
+    <string name="question">Home town</string>
+    <string name="answer">Email</string>
+    <string name="submit">Update</string>
+    <string name="product">Hot product</string>
+    <string name="best_sale_product">News product</string>
     <string name="mouse_product">Mouse</string>
     <string name="key_board">Keyboard</string>
     <string name="other_product">Other</string>
@@ -26,11 +26,10 @@
     <string name="your_order">Order detail</string>
     <string name="information">User information</string>
     <string name="personal_information_management">Personal information management</string>
-    <string name="manage_produc_information">Manage product information</string>
     <string name="change_the_password">Change the password</string>
     <string name="personal_change_information">Personal change information</string>
     <string name="add_products">Add product</string>
-    <string name="edit_products">Change product information</string>
+    <string name="edit_products">Update product</string>
     <string name="delete_products">Delete product</string>
     <string name="name_product">Product name</string>
     <string name="price">Price</string>
@@ -44,4 +43,32 @@
     <string name="type_product">Type</string>
     <string name="pay">Pay</string>
     <string name="total">Total price:</string>
+    <string-array name="list_producer">
+        <item>Logitech</item>
+        <item>Dell</item>
+        <item>Asus</item>
+        <item>HP</item>
+        <item>ColorPlus</item>
+        <item>Acer</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="list_sort">
+        <item>Tất cả</item>
+        <item>Tên A-Z</item>
+        <item>Giá từ thấp đến cao</item>
+        <item>Giá từ cao xuống thấp</item>
+    </string-array>
+    <string name="delete">Delete</string>
+    <string name="sing_out">Sing out</string>
+    <string name="report">Report</string>
+    <string name="products">Products</string>
+    <string name="employees">Employees</string>
+    <string name="add">Add</string>
+    <string name="enter_employees_name">Enter employee name</string>
+    <string name="staff_information">Staff information</string>
+    <string name="product_information">Product information</string>
+    <string name="add_employee">Add employee</string>
+    <string name="update_employee">Update employee</string>
+    <string name="manage_employee">Manage imployee</string>
+    <string name="price_import">Price import</string>
 </resources>

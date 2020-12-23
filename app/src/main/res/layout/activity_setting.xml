@@ -34,7 +34,7 @@
                         android:src="@drawable/avatar" />
 
                     <TextView
-                        android:id="@+id/tvNameUser"
+                        android:id="@+id/tvNameUserSeting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tvInformation"
@@ -86,6 +86,7 @@
                         android:textSize="@dimen/_15sdp" />
 
                     <TextView
+                        android:id="@+id/tvDateOfBirthSetting"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -111,6 +112,7 @@
                         android:textSize="@dimen/_15sdp" />
 
                     <TextView
+                        android:id="@+id/tvPhone"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -161,12 +163,21 @@
                     android:text="@string/personal_change_information"
                     android:textSize="@dimen/_15sdp"
                     android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/btnLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:text="@string/sing_out"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10sdp"
+                android:id="@+id/llManageProduct"
                 android:background="@drawable/border_cancle"
                 android:orientation="vertical">
 
@@ -180,7 +191,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sdp"
-                        android:text="@string/manage_produc_information"
+                        android:text="@string/add"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_18sdp"
                         android:textStyle="bold" />
@@ -196,22 +207,14 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/btnChangeProduct"
+                    android:id="@+id/btnAddEmployee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10sdp"
-                    android:text="@string/edit_products"
+                    android:text="@string/add_employee"
                     android:textSize="@dimen/_15sdp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/btnDeleteProduct"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_10sdp"
-                    android:text="@string/delete_products"
-                    android:textSize="@dimen/_15sdp"
-                    android:textStyle="bold" />
 
             </LinearLayout>
         </LinearLayout>

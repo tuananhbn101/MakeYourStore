@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/staff_information"
+                    android:textStyle="bold"
+                    android:textColor="@color/login_hint_color"
+                    android:textSize="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_15sdp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/full_name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/etNewFullNameUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/date_of_birth"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDateOfBirthUp"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:gravity="bottom"
+                        android:textColor="#222222"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:background="#737171" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/phone"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/etNewPhoneUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/question"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13sdp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/etQuestionUp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:singleLine="true"
+                            android:textSize="@dimen/_10sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/answer"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13sdp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/etAnswerUp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:singleLine="true"
+                            android:textSize="@dimen/_10sdp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/btnSubmitUp"
+                    android:layout_width="@dimen/_100sdp"
+                    android:background="@color/purple_500"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:text="@string/submit"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_gravity="center"
+                    android:textAllCaps="false"/>
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/btnCancleUp"
+                android:layout_width="@dimen/_80sdp"
+                android:background="@color/teal_200"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/_100sdp"
+                android:layout_marginTop="@dimen/_146sdp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-light"
+                android:layout_height="@dimen/_30sdp"
+                android:text="OK"
+                android:textSize="@dimen/_15sdp"
+                android:layout_gravity="center"
+                android:textAllCaps="false"/>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>
