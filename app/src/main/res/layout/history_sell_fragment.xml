@@ -18,7 +18,7 @@
             android:textSize="@dimen/_25sdp"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:text="Lịch sử giao dịch"/>
+            android:text="@string/TransactionHistory"/>
     </androidx.cardview.widget.CardView>
     <ListView
         android:id="@+id/lvHistory"

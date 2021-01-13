@@ -16,6 +16,7 @@ import com.example.makeyourstore.R;
 import com.example.makeyourstore.SQLite_Manage_Your_Store;
 import com.example.makeyourstore.databinding.ActivityLoginBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -25,13 +26,14 @@ public class Login_Activity extends AppCompatActivity {
     Create_A_New_Account create_a_new_account;
     SQLite_Manage_Your_Store sqLite_manage_your_store;
     List<Account> accountList;
-    private final Account account = new Account(0,"admin1","Admin123","Nguyễn Tuấn Anh","10/01/2000","0395501405","","",0);
+    private final Account account = new Account(0,"admin1","Admin123","Nguyễn Tuấn Anh","10-01-2000","0395501405","","","",0);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login_);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         sqLite_manage_your_store = new SQLite_Manage_Your_Store(Login_Activity.this);
+        accountList = new ArrayList<>();
         accountList = sqLite_manage_your_store.getAllAccounts();
         if(accountList.size()==0){
             sqLite_manage_your_store.insertAccount(account);
@@ -73,14 +75,21 @@ public class Login_Activity extends AppCompatActivity {
                 }
                 if (count != 0) {
                     Toast.makeText(Login_Activity.this, "Đăng nhập thành công", Toast.LENGTH_LONG).show();
-                    if(permission==1){
-                        Intent intent = new Intent(Login_Activity.this, Employee_Main_Activity.class);
-                        intent.putExtra("userName",binding.etUserName.getText().toString());
-                        startActivity(intent);
-                    }
                     if(permission==0){
                         Intent intent = new Intent(Login_Activity.this, Admin_Main_Activity.class);
-                        intent.putExtra("userName",binding.etUserName.getText().toString());
+                        intent.putExtra("ID",1+"");
+                        startActivity(intent);
+                    }
+                    if(permission==1){
+                        int id = 0;
+                        for (Account account: accountList
+                             ) {
+                            if(account.getUserName().equals(binding.etUserName.getText().toString())){
+                                id = account.getID();
+                            }
+                        }
+                        Intent intent = new Intent(Login_Activity.this, Employee_Main_Activity.class);
+                        intent.putExtra("ID",id+"");
                         startActivity(intent);
                     }
                 }

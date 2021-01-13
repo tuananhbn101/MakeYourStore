@@ -5,7 +5,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray_light">
+        android:background="#53C0CF">
 
         <LinearLayout
             android:id="@+id/llFind"
@@ -15,7 +15,13 @@
             android:background="@drawable/background_main_content"
             android:orientation="horizontal">
 
-
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/ic_baseline_west_24"/>
             <EditText
                 android:id="@+id/etNameProduct1"
                 android:layout_width="0dp"
@@ -37,30 +43,13 @@
                 android:layout_weight="0.1"
                 android:src="@drawable/ic_baseline_search_24" />
         </LinearLayout>
-        <RelativeLayout
-            android:layout_marginTop="@dimen/_45sdp"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="@dimen/_20sdp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Sắp xếp theo : "
-                android:textSize="@dimen/_13sdp"
-                android:layout_marginLeft="@dimen/_90sdp"/>
-            <Spinner
-                android:id="@+id/spinnerSort"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/_5sdp"
-                android:layout_width="@dimen/_135sdp"
-                android:layout_height="match_parent"/>
-        </RelativeLayout>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_70sdp"
+            android:layout_marginTop="@dimen/_50sdp"
             android:layout_marginRight="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             app:cardCornerRadius="@dimen/_10sdp">
 
             <RelativeLayout

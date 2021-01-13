@@ -3,39 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
         android:layout_width="match_parent"
+        android:background="@color/login_hint_color"
         android:layout_height="match_parent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:id="@+id/tvThongtin"
-            android:layout_height="wrap_content"
-            android:text="@string/staff_information"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="@dimen/_5sdp"
-            android:textStyle="bold"
-            android:textSize="@dimen/_20sdp"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:id="@+id/cvThongtin"
+            android:layout_height="@dimen/_50sdp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tvThongtin"
+                android:layout_height="wrap_content"
+                android:text="@string/staff_information"
+                android:layout_gravity="center"
+                android:textColor="@color/purple_500"
+                android:layout_margin="@dimen/_5sdp"
+                android:textStyle="bold"
+                android:textSize="@dimen/_20sdp"/>
+        </androidx.cardview.widget.CardView>
         <LinearLayout
-            android:layout_below="@+id/tvThongtin"
+            android:layout_below="@+id/cvThongtin"
             android:id="@+id/llFindEmloyee"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_32sdp"
             android:layout_margin="@dimen/_5sdp"
-            android:background="@drawable/border_cancle"
+            android:background="@color/white"
             android:orientation="horizontal">
 
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/etSearchEmployee"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_5sdp"
                 android:layout_weight="0.8"
                 android:background="@color/white"
                 android:hint="@string/enter_employees_name"
                 android:inputType="text"
                 android:singleLine="true" />
-
+            <ImageView
+                android:id="@+id/btnCancleE"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/border_cancle"
+                android:visibility="invisible"
+                android:src="@drawable/cancle" />
             <ImageView
                 android:id="@+id/btnSearchEmployee"
                 android:layout_width="0dp"
@@ -46,43 +60,18 @@
                 android:src="@drawable/ic_baseline_search_24" />
         </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:id="@+id/spinnerSortEmployee"
-            android:layout_alignParentRight="true"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/llFindEmloyee"
-            app:cardBackgroundColor="@color/gray_light"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:layout_marginRight="@dimen/_5sdp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sắp xếp theo :"
-                android:layout_marginLeft="@dimen/_60sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:textSize="@dimen/_13sdp"
-                android:layout_below="@+id/llFindEmloyee"/>
-            <Spinner
-                android:layout_marginRight="@dimen/_10sdp"
-                android:layout_width="@dimen/_150sdp"
-                android:id="@+id/spinnerSortEmployees"
-                android:layout_gravity="right"
-                android:layout_height="@dimen/_28sdp"
-                />
-        </androidx.cardview.widget.CardView>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_below="@+id/spinnerSortEmployee"
+            android:layout_below="@+id/llFindEmloyee"
             android:id="@+id/rvEmployees"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_5sdp"/>
+            android:background="@color/white"
+            android:layout_height="match_parent" />
         <TextView
             android:id="@+id/tvNoEmployees"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="Không tìm thấy nhân viên nào"
+            android:text="@string/No_staff_found"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold"
             android:layout_centerInParent="true" />
@@ -92,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
-            android:text="Vui lòng bấm vào tab Thêm -> Thêm nhân viên"
+            android:text="@string/link"
             android:textSize="@dimen/_13sdp"
             android:layout_centerInParent="true" />
         <!--        <TextView-->

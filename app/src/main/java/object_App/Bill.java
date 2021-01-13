@@ -6,15 +6,18 @@ public class Bill {
     private String names;
     private String amount;
     private String price;
-    private long total;
 
-    public Bill(int ID, String date, String names, String amount, String price, long total) {
+    private long total;
+    private int IDEmployee;
+
+    public Bill(int ID, String date, String names, String amount, String price,long total,int IDEmployee) {
         this.ID = ID;
         this.date = date;
         this.names = names;
         this.amount = amount;
         this.price = price;
         this.total = total;
+        this.IDEmployee = IDEmployee;
     }
 
     public int getID() {
@@ -55,6 +58,14 @@ public class Bill {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public int getIDEmployee() {
+        return IDEmployee;
+    }
+
+    public void setIDEmployee(int IDEmployee) {
+        this.IDEmployee = IDEmployee;
     }
 
     public long getTotal() {

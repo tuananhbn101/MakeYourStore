@@ -22,6 +22,8 @@ import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 import gun0912.tedbottompicker.TedBottomPicker;
@@ -67,7 +69,10 @@ public class Add_Product extends AppCompatActivity implements AdapterView.OnItem
                 } else {
                     Toast.makeText(getApplicationContext(), "Thêm sản phẩm thành công", Toast.LENGTH_LONG).show();
                     sqLite_manage_your_store.insertProduct(new Product(0, nameProduct,Long.valueOf(priceImprot), Long.valueOf(price), Integer.valueOf(amount), typeProduct, describe, image, producer));
+                    Intent intent1 = getIntent();
+                    String id = intent1.getStringExtra("ID");
                     Intent intent = new Intent(getBaseContext(), Admin_Main_Activity.class);
+                    intent.putExtra("ID",id+"");
                     startActivity(intent);
                 }
 

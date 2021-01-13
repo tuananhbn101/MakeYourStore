@@ -176,7 +176,7 @@
                 android:background="@color/teal_200"
                 android:textColor="@color/white"
                 android:layout_marginLeft="@dimen/_100sdp"
-                android:layout_marginTop="@dimen/_146sdp"
+                android:layout_marginTop="@dimen/_240sdp"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-condensed-light"
                 android:layout_height="@dimen/_30sdp"

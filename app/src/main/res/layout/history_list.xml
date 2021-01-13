@@ -17,7 +17,7 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="Hóa đơn"
+               android:text="@string/bill"
                android:textStyle="bold"
                android:textColor="@color/login_hint_color"
                android:textSize="@dimen/_20sdp" />
@@ -43,9 +43,13 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="Ngày bán: "
+               android:text="@string/date"
                android:textSize="@dimen/_13sdp" />
-
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text=" :"
+               android:textSize="@dimen/_13sdp" />
            <TextView
                android:id="@+id/tvDateSell"
                android:layout_width="wrap_content"
@@ -54,11 +58,36 @@
                android:text="01/02/2020"
                android:textSize="@dimen/_13sdp" />
        </LinearLayout>
+       <LinearLayout
+           android:id="@+id/llEmployee"
+           android:layout_below="@+id/llDate"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="@dimen/_10sdp">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/employees"
+               android:textSize="@dimen/_13sdp" />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text=" :"
+               android:textSize="@dimen/_13sdp" />
+           <TextView
+               android:id="@+id/tvEmployee"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="@dimen/_5sdp"
+               android:text="Nguyễn Tuấn Anh"
+               android:textSize="@dimen/_13sdp" />
+       </LinearLayout>
 
        <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:layout_below="@+id/llDate"
+           android:layout_below="@+id/llEmployee"
            android:id="@+id/sheet"
            android:layout_margin="@dimen/_10sdp"
            android:background="@drawable/border_content_biuld"
@@ -75,7 +104,7 @@
                    android:layout_gravity="center"
                    android:layout_weight="1"
                    android:gravity="center"
-                   android:text="Tên sản phẩm"
+                   android:text="@string/name_product"
                    android:textSize="@dimen/_13sdp" />
 
                <TextView
@@ -89,7 +118,7 @@
                    android:layout_gravity="center"
                    android:layout_weight="0.5"
                    android:gravity="center"
-                   android:text="SL"
+                   android:text="@string/amount"
                    android:textSize="@dimen/_13sdp" />
 
                <TextView
@@ -104,7 +133,7 @@
                    android:layout_gravity="center"
                    android:layout_weight="0.75"
                    android:gravity="center"
-                   android:text="Đơn giá"
+                   android:text="@string/price"
                    android:textSize="@dimen/_13sdp" />
            </LinearLayout>
 

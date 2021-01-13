@@ -1,5 +1,6 @@
 package adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.makeyourstore.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -18,9 +20,13 @@ import object_App.Account;
 public class Adaptor_Update_Employees extends RecyclerView.Adapter<Adaptor_Update_Employees.ViewHolder> {
     List<Account> accountList;
     Click_Manage_Account click_manage_account;
-    public Adaptor_Update_Employees(List<Account> accountList) {
+    private Context context;
+
+    public Adaptor_Update_Employees(List<Account> accountList, Context context) {
         this.accountList = accountList;
+        this.context = context;
     }
+
     public  void setClick_manage_account(Click_Manage_Account click_manage_account){
         this.click_manage_account = click_manage_account;
     }
@@ -39,7 +45,8 @@ public class Adaptor_Update_Employees extends RecyclerView.Adapter<Adaptor_Updat
         holder.tvFullName.setText(account.getFullName());
         holder.tvDate.setText(account.getDateOfBirth());
         holder.tvPhone.setText(account.getPhone());
-       
+        holder.tvID.setText(account.getID()+"");
+        Picasso.with(context).load("file://"+account.getAvatar()).into(holder.ivAvatar);
         holder.btnShowInf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +56,7 @@ public class Adaptor_Update_Employees extends RecyclerView.Adapter<Adaptor_Updat
         holder.btnDeleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                click_manage_account.clickBtnDelete(position);
+                click_manage_account.clickBtnDelete(position,account.getID());
             }
         });
     }
@@ -60,16 +67,17 @@ public class Adaptor_Update_Employees extends RecyclerView.Adapter<Adaptor_Updat
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvFullName,tvDate,tvPhone,btnShowInf,btnDeleteAccount;
+        TextView tvFullName,tvDate,tvPhone,btnShowInf,btnDeleteAccount,tvID;
         ImageView ivAvatar;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvFullName = itemView.findViewById(R.id.tvNameAccount);
             tvDate = itemView.findViewById(R.id.tvDateAcount);
             tvPhone = itemView.findViewById(R.id.tvPhoneAccount);
+            tvID= itemView.findViewById(R.id.tvIDAccount);
             btnDeleteAccount = itemView.findViewById(R.id.btnDeleteAccount);
             btnShowInf = itemView.findViewById(R.id.btnShowInf);
-            itemView = itemView.findViewById(R.id.tvAvatar);
+            ivAvatar = itemView.findViewById(R.id.tvAvatar);
         }
     }
 }

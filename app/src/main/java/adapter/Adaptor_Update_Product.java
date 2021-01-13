@@ -62,6 +62,12 @@ public class Adaptor_Update_Product extends RecyclerView.Adapter<Adaptor_Update_
                 clickOrderProduct.clickBtnAdd(product.getID(),position);
             }
         });
+        holder.ivProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickOrderProduct.clickAmount(product.getID(),position);
+            }
+        });
     }
 
     @Override

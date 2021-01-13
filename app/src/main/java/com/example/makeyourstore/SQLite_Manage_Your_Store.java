@@ -32,6 +32,7 @@ public class SQLite_Manage_Your_Store extends SQLiteOpenHelper {
     static final String ACCOUNT_DATE_OF_BIRTH = "dateOfBirth";
     static final String ACCOUNT_PHONE = "phone";
     static final String ACCOUNT_QUESTION = "question";
+    static final String ACCOUNT_AVATAR = "avatar";
     static final String ACCOUNT_ANSWER = "answer";
     static final String ACCOUNT_PERMISSION = "permission";
     static final String PRODUCT_ID = "ID";
@@ -47,12 +48,14 @@ public class SQLite_Manage_Your_Store extends SQLiteOpenHelper {
     static final String REPORT_DATE = "date";
     static final String REPORT_TOTAL_IMPORT = "totalImport";
     static final String REPORT_TOTAL_SALE = "totalSale";
+    static final String REPORT_ID_EMPLOYEE= "IDEmployee";
     static final String BILL_ID = "IDBill";
     static final String BILL_DATE = "date";
     static final String BILL_NAME_PRODUCT = "names";
     static final String BILL_AMOUNT = "amounts";
     static final String BILL_PRICE = "price";
     static final String BILL_TOTAL = "total";
+    static final String BILL_ID_EMPLOYEE= "IDEmployee";
     public SQLite_Manage_Your_Store(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -67,6 +70,7 @@ public class SQLite_Manage_Your_Store extends SQLiteOpenHelper {
                 "dateOfBirth TEXT NOT NULL," +
                 "phone TEXT NOT NULL," +
                 "question TEXT NOT NULL," +
+                "avatar TEXT NOT NULL," +
                 "answer TEXT NOT NULL," +
                 "permission INTERGER )";
         String queryCreateTableProducts = "CREATE TABLE Products (" +
@@ -93,14 +97,16 @@ public class SQLite_Manage_Your_Store extends SQLiteOpenHelper {
                 "IDReport INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                 "date TEXT NOT NULL," +
                 "totalImport TEXT NOT NULL," +
-                "totalSale LONG)";
+                "totalSale LONG,"+
+                "IDEmployee INTERGER)";
         String queryCreateTableBillProducts = "CREATE TABLE Bills (" +
                 "IDBill INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                 "date TEXT NOT NULL," +
                 "names TEXT NOT NULL," +
                 "amounts TEXT NOT NULL," +
                 "price TEXT NOT NULL," +
-                "total LONG NOT NULL)";
+                "total LONG NOT NULL,"+
+                "IDEmployee INTERGER)";
         db.execSQL(queryCreateTableAccounts);
         db.execSQL(queryCreateTableProducts);
         db.execSQL(queryCreateTableOrderProducts);
@@ -127,6 +133,7 @@ public class SQLite_Manage_Your_Store extends SQLiteOpenHelper {
         contentValues.put(ACCOUNT_PHONE, account.getPhone());
         contentValues.put(ACCOUNT_QUESTION, account.getHomeTown());
         contentValues.put(ACCOUNT_ANSWER, account.getEmail());
+        contentValues.put(ACCOUNT_AVATAR, account.getAvatar());
         contentValues.put(ACCOUNT_PERMISSION,account.getPermission());
         sqLiteDatabase.insert(DB_TABLE_ACCOUNT, null, contentValues);
     }
@@ -142,13 +149,14 @@ public class SQLite_Manage_Your_Store extends SQLiteOpenHelper {
         contentValues.put(ACCOUNT_PHONE, account.getPhone());
         contentValues.put(ACCOUNT_QUESTION, account.getHomeTown());
         contentValues.put(ACCOUNT_ANSWER, account.getEmail());
+        contentValues.put(ACCOUNT_AVATAR, account.getAvatar());
         contentValues.put(ACCOUNT_PERMISSION,account.getPermission());
         sqLiteDatabase.update(DB_TABLE_ACCOUNT, contentValues, "ID = ?", new String[]{String.valueOf(account.getID())});
     }
 
-    public void deleteAccount(Account account) {
+    public void deleteAccount(int id) {
         sqLiteDatabase = getWritableDatabase();
-        sqLiteDatabase.delete(DB_TABLE_ACCOUNT, "ID = ?",new String[]{String.valueOf(account.getID())} );
+        sqLiteDatabase.delete(DB_TABLE_ACCOUNT, "ID = ?",new String[]{String.valueOf(id)} );
     }
 
     public List<Account> getAllAccounts() {
@@ -171,7 +179,8 @@ public class SQLite_Manage_Your_Store extends SQLiteOpenHelper {
                 String question = cursor.getString(cursor.getColumnIndex(ACCOUNT_QUESTION));
                 String answer = cursor.getString(cursor.getColumnIndex(ACCOUNT_ANSWER));
                 int permission = cursor.getInt(cursor.getColumnIndex(ACCOUNT_PERMISSION));
-                account = new Account(ID, userName, password, fullName, dateOfBirth, phone, question, answer,permission);
+                String avatar = cursor.getString(cursor.getColumnIndex(ACCOUNT_AVATAR));
+                account = new Account(ID, userName, password, fullName, dateOfBirth, phone, question, answer,avatar,permission);
                 accountList.add(account);
             }
         return accountList;
@@ -315,6 +324,7 @@ public class SQLite_Manage_Your_Store extends SQLiteOpenHelper {
         contentValues.put(REPORT_DATE, report.getDate());
         contentValues.put(REPORT_TOTAL_IMPORT ,report.getTotalImport());
         contentValues.put(REPORT_TOTAL_SALE, report.getTotalSale());
+        contentValues.put(REPORT_ID_EMPLOYEE, report.getIDEmployee());
         sqLiteDatabase.insert(DB_TABLE_REPORT, null, contentValues);
     }
 
@@ -332,7 +342,8 @@ public class SQLite_Manage_Your_Store extends SQLiteOpenHelper {
                 long totalImport = cursor.getInt(cursor.getColumnIndex(REPORT_TOTAL_IMPORT));
                 long totalSale = cursor.getLong(cursor.getColumnIndex(REPORT_TOTAL_SALE));
                 String date = cursor.getString(cursor.getColumnIndex(REPORT_DATE));
-                reportArrayList.add(new Report(date, ID, totalImport, totalSale));
+                int IDEmployees = cursor.getInt(cursor.getColumnIndex(REPORT_ID_EMPLOYEE));
+                reportArrayList.add(new Report(date, ID, totalImport, totalSale,IDEmployees));
             }
         return reportArrayList;
     }
@@ -345,6 +356,7 @@ public class SQLite_Manage_Your_Store extends SQLiteOpenHelper {
         contentValues.put(BILL_AMOUNT, bill.getAmount());
         contentValues.put(BILL_PRICE, bill.getPrice());
         contentValues.put(BILL_TOTAL, bill.getTotal());
+        contentValues.put(BILL_ID_EMPLOYEE, bill.getIDEmployee());
         sqLiteDatabase.insert(DB_TABLE_BILL, null, contentValues);
     }
 
@@ -364,7 +376,8 @@ public class SQLite_Manage_Your_Store extends SQLiteOpenHelper {
                 String amount = cursor.getString(cursor.getColumnIndex(BILL_AMOUNT));
                 String price = cursor.getString(cursor.getColumnIndex(BILL_PRICE));
                 long total = cursor.getLong(cursor.getColumnIndex(BILL_TOTAL));
-                billArrayList.add(new Bill(ID,date,nameProduct, amount, price,total));
+                int IDEmployees = cursor.getInt(cursor.getColumnIndex(BILL_ID_EMPLOYEE));
+                billArrayList.add(new Bill(ID,date,nameProduct, amount, price,total,IDEmployees));
             }
         return billArrayList;
     }

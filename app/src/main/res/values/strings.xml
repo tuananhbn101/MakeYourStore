@@ -53,10 +53,12 @@
         <item>Other</item>
     </string-array>
     <string-array name="list_sort">
-        <item>Tất cả</item>
-        <item>Tên A-Z</item>
-        <item>Giá từ thấp đến cao</item>
-        <item>Giá từ cao xuống thấp</item>
+        <item>Từ A-Z</item>
+        <item>Tên Z-A</item>
+        <item>Chuột</item>
+        <item>Bàn phím</item>
+        <item>SP khác</item>
+        <item>Tất cả sản phẩm</item>
     </string-array>
     <string name="delete">Delete</string>
     <string name="sing_out">Sing out</string>
@@ -71,4 +73,24 @@
     <string name="update_employee">Update employee</string>
     <string name="manage_employee">Manage imployee</string>
     <string name="price_import">Price import</string>
+    <string name="add_image">Add image</string>
+    <string name="transaction_list">Transaction list</string>
+    <string name="date">Date</string>
+    <string name="IDBill">ID Bill</string>
+    <string name="total_import">Total price import</string>
+    <string name="total_price">Total price sell</string>
+    <string name="Number_of_transactions">"Number of transactions: "</string>
+    <string name="total_interest">"Total interest: "</string>
+    <string name="Change_Image">Change image</string>
+    <string name="choose_image">Choose image</string>
+    <string name="update">Update</string>
+    <string name="update_Amount">Quantity purchased</string>
+    <string name="enter_amount">Enter amount:</string>
+    <string name="bill">Bill</string>
+    <string name="TransactionHistory">Transaction history</string>
+    <string name="No_staff_found">No staff found</string>
+    <string name="link">Please click on the tab Add -> Add Employees</string>
+    <string name="no_product_found">No product found</string>
+    <string name="link2">Please click the Add tab -> Add product</string>
+    <string name="view_infor">View information</string>
 </resources>

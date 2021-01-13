@@ -25,19 +25,35 @@
                     android:gravity="center">
 
 
-                    <ImageView
-                        android:layout_width="@dimen/_150sdp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvInformation"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvInformation"
+                        app:cardCornerRadius="@dimen/_100sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/avatar" />
+                        android:layout_marginLeft="@dimen/_100sdp"
+                        android:layout_gravity="center">
 
+                        <ImageView
+                            android:id="@+id/tvInformation"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/avatar" />
+                    </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:src="@drawable/camera"
+                        android:layout_marginTop="@dimen/_90sdp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/_80sdp"
+                        android:background="@color/white"/>
                     <TextView
                         android:id="@+id/tvNameUserSeting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvInformation"
+                        android:layout_below="@+id/cvInformation"
                         android:layout_centerHorizontal="true"
                         android:layout_margin="@dimen/_10sdp"
                         android:fontFamily="sans-serif-light"

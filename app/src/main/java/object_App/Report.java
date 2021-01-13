@@ -2,15 +2,17 @@ package object_App;
 
 public class Report {
     private String date;
-    private int id;
+    private int ID;
     private long totalImport;
     private long totalSale;
+    private int IDEmployee;
 
-    public Report(String date, int id, long totalimport, long totalsale) {
+    public Report(String date, int ID, long totalImport, long totalSale, int IDEmployee) {
         this.date = date;
-        this.id = id;
-        this.totalImport = totalimport;
-        this.totalSale = totalsale;
+        this.ID = ID;
+        this.totalImport = totalImport;
+        this.totalSale = totalSale;
+        this.IDEmployee = IDEmployee;
     }
 
     public String getDate() {
@@ -21,27 +23,35 @@ public class Report {
         this.date = date;
     }
 
-    public int getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public long getTotalImport() {
         return totalImport;
     }
 
-    public void setTotalImport(long totalimport) {
-        this.totalImport = totalimport;
+    public void setTotalImport(long totalImport) {
+        this.totalImport = totalImport;
     }
 
     public long getTotalSale() {
         return totalSale;
     }
 
-    public void setTotalsale(long totalsale) {
-        this.totalSale = totalsale;
+    public void setTotalSale(long totalSale) {
+        this.totalSale = totalSale;
+    }
+
+    public int getIDEmployee() {
+        return IDEmployee;
+    }
+
+    public void setIDEmployee(int IDEmployee) {
+        this.IDEmployee = IDEmployee;
     }
 }

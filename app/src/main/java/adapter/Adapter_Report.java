@@ -45,7 +45,7 @@ public class Adapter_Report  extends BaseAdapter {
         TextView totalImport = view.findViewById(R.id.idProduct);
         TextView toalSale = view.findViewById(R.id.total);
         date.setText(report.getDate());
-        id.setText(report.getId()+"");
+        id.setText(report.getID()+"");
         DecimalFormat formatter1 = new DecimalFormat("###,###,###");
         String totlaImport1 = formatter1.format(report.getTotalImport())+" đ";
         totalImport.setText(totlaImport1);

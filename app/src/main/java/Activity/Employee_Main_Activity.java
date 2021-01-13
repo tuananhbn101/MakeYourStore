@@ -28,7 +28,7 @@ public class Employee_Main_Activity extends AppCompatActivity {
     SQLite_Manage_Your_Store sqLite_manage_your_store;
     private int mcount = 0;
     private int rcount = 0;
-    String userName;
+    int ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class Employee_Main_Activity extends AppCompatActivity {
         List<Product> products = new ArrayList<>();
         products = sqLite_manage_your_store.getAllOrderPrduct();
         Intent intent = getIntent();
-        userName = intent.getStringExtra("userName");
+        ID = Integer.valueOf(intent.getStringExtra("ID"));
         AHBottomNavigationItem home = new AHBottomNavigationItem(R.string.home, R.drawable.home, R.color.black);
         AHBottomNavigationItem sell = new AHBottomNavigationItem(R.string.sell, R.drawable.sell, R.color.black);
         AHBottomNavigationItem history = new AHBottomNavigationItem(R.string.history, R.drawable.ic_baseline_history_24, R.color.black);
@@ -103,7 +103,10 @@ public class Employee_Main_Activity extends AppCompatActivity {
         return rcount;
     }
 
-    public String getUserName() {
-        return userName;
+    public int getID() {
+        return ID;
+    }
+    public int getPermission() {
+        return 1;
     }
 }

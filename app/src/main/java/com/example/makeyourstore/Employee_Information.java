@@ -11,7 +11,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,10 +21,13 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.example.makeyourstore.databinding.EmployeeInformationBinding;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
+import Activity.Choose_Image;
 import Activity.Employee_Main_Activity;
 import login.Login_Activity;
 import object_App.Account;
@@ -47,15 +52,17 @@ public class Employee_Information extends Fragment {
         binding = DataBindingUtil.inflate(inflater,R.layout.employee_information,container,false);
         accountList= new ArrayList<>();
         employee_main_activity = (Employee_Main_Activity) getActivity();
-        String userName = employee_main_activity.getUserName();
+        int id = employee_main_activity.getID();
         sqLite_manage_your_store =new SQLite_Manage_Your_Store(getContext());
         accountList= sqLite_manage_your_store.getAllAccounts();
         for (Account account: accountList
         ) {
-            if(account.getUserName().equals(userName)){
+            if(account.getID() == id){
                 binding.tvNameEmployee.setText(account.getFullName());
                 binding.tvDateOfBirthEmployee.setText(account.getDateOfBirth());
                 binding.tvPhoneEmployee.setText(account.getPhone());
+                Picasso.with(getContext()).load("file://"+account.getAvatar()).into(binding.ivInformation);
+                break;
             }
         }
         binding.btnLogoutEmployee.setOnClickListener(new View.OnClickListener() {
@@ -65,11 +72,20 @@ public class Employee_Information extends Fragment {
                 startActivity(intent);
             }
         });
+        binding.ivInformation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), Choose_Image.class);
+                intent.putExtra("type","account");
+                intent.putExtra("ID",employee_main_activity.getID()+"");
+                intent.putExtra("permission",employee_main_activity.getPermission()+"");
+                startActivity(intent);
+            }
+        });
         binding.btnChangePassEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), Change_Password_Fragment.class);
-                startActivity(intent);
+               getDialogChangePass();
             }
         });
         binding.btnChangeInformationEmployee.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +93,7 @@ public class Employee_Information extends Fragment {
             public void onClick(View v) {
                 for (Account account: accountList
                 ) {
-                    if(account.getUserName().equals(userName)){
+                    if(account.getID()==id){
                         getDialog(account);
                     }
                 }
@@ -85,6 +101,61 @@ public class Employee_Information extends Fragment {
         });
         return binding.getRoot();
 
+    }
+    public void getDialogChangePass(){
+        Dialog dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.change_password_fragment);
+        EditText userName = dialog.findViewById(R.id.tvUserName);
+        EditText oldPass = dialog.findViewById(R.id.tvOldPass);
+        EditText newPass = dialog.findViewById(R.id.tvNewPass);
+        EditText confirmPass = dialog.findViewById(R.id.tvConfirmNewPass);
+        Button btnChange = dialog.findViewById(R.id.btnChangePassword);
+        accountList = new ArrayList<>();
+        sqLite_manage_your_store = new SQLite_Manage_Your_Store(getContext());
+        accountList = sqLite_manage_your_store.getAllAccounts();
+        btnChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int dem = 0;
+                String userName1 = userName.getText().toString();
+                String oldPass1 = oldPass.getText().toString();
+                String newPass1 = newPass.getText().toString();
+                String confirm1 = confirmPass.getText().toString();
+                for (Account account : accountList
+                ) {
+                    if (account.getUserName().equals(userName1) && account.getPassword().equals(oldPass1)) {
+                        if (newPass1.equals(confirm1)) {
+                            account.setPassword(newPass1);
+                            sqLite_manage_your_store.updateAccount(account);
+                            dem++;
+                        } else confirmPass.setError("Không trùng khớp mật khẩu");
+                    }
+                }
+                if (checkPassword(newPass1) == false) {
+                    newPass.setError("Tài khoản có từ 6 ký tự bao gồm chữ hoa, chữ thường và số");
+                    dem = 0;
+                }
+                if (checkPassword(confirm1) == false) {
+                    confirmPass.setError("Tài khoản có từ 6 ký tự bao gồm chữ hoa, chữ thường và số");
+                    dem = 0;
+                }
+                if (userName1.isEmpty() || oldPass1.isEmpty() || newPass1.isEmpty() || confirm1.isEmpty()) {
+                    Toast.makeText(getContext(), "Bạn chưa nhập đủ thông tin", Toast.LENGTH_LONG).show();
+                    dem = 0;
+                }
+                if (dem != 0) {
+                    Toast.makeText(getContext(), "Đổi mật khẩu thành công", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getContext(), Employee_Main_Activity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        dialog.show();
+        dialog.getWindow().setAttributes(lp);
     }
     public void getDialog(Account account) {
         int selectedYear = 2000;
@@ -103,6 +174,7 @@ public class Employee_Information extends Fragment {
         question.setText(account.getHomeTown());
         answer.setText(account.getEmail());
         Button button = dialog.findViewById(R.id.btnSubmitUp);
+        Button button1 = dialog.findViewById(R.id.btnCancleUp);
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,12 +207,40 @@ public class Employee_Information extends Fragment {
                 dialog.cancel();
             }
         });
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         dialog.show();
         dialog.getWindow().setAttributes(lp);
+    }
+
+    public boolean checkUserName(String userName) {
+        String passPattern = "((?=.*\\d)(?=.*[a-z]).{6,})";
+        if (userName.isEmpty()) {
+            return false;
+        } else if (Pattern.matches(passPattern, userName)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean checkPassword(String password) {
+        String passPattern = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,})";
+        if (password.isEmpty()) {
+            return false;
+        } else if (Pattern.matches(passPattern, password)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

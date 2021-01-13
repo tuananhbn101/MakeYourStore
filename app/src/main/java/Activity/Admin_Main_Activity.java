@@ -17,12 +17,12 @@ import com.example.makeyourstore.databinding.ActivityAdminMainBinding;
 
 public class Admin_Main_Activity extends AppCompatActivity {
     ActivityAdminMainBinding binding;
-    private String userName;
+    private  int ID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        userName = intent.getStringExtra("userName");
+        ID = Integer.valueOf(intent.getStringExtra("ID"));
         binding = DataBindingUtil.setContentView(this,R.layout.activity_admin__main_);
         AHBottomNavigationItem product = new AHBottomNavigationItem(R.string.products, R.drawable.box, R.color.black);
         AHBottomNavigationItem employees = new AHBottomNavigationItem(R.string.employees, R.drawable.management, R.color.black);
@@ -53,7 +53,8 @@ public class Admin_Main_Activity extends AppCompatActivity {
             }
         });
     }
-    public String getUserName() {
-        return userName;
+    public int getID() {
+        return ID;
     }
+    public int getPermission(){return 0;}
 }

@@ -13,6 +13,7 @@ import com.example.makeyourstore.R;
 import java.text.DecimalFormat;
 import java.util.List;
 
+import object_App.Account;
 import object_App.Bill;
 import object_App.Product;
 import object_App.Report;
@@ -20,9 +21,11 @@ import object_App.Report;
 public class
 Adapter_History_Sell extends BaseAdapter {
     List<Bill> billList;
+    String fullName;
 
-    public Adapter_History_Sell(List<Bill> reportList) {
-        this.billList = reportList;
+    public Adapter_History_Sell(List<Bill> billList, String fullName) {
+        this.billList = billList;
+        this.fullName = fullName;
     }
 
     @Override
@@ -50,6 +53,7 @@ Adapter_History_Sell extends BaseAdapter {
         TextView name = view.findViewById(R.id.tvNameProductSell);
         TextView price = view.findViewById(R.id.tvPriceBill);
         TextView total = view.findViewById(R.id.tvtotalBill);
+        TextView employee = view.findViewById(R.id.tvEmployee);
         idHistory.setText(billList.get(position).getID()+"");
         date.setText(billList.get(position).getDate());
         String nameProduct = "";
@@ -69,12 +73,15 @@ Adapter_History_Sell extends BaseAdapter {
         }
         else{
             nameProduct += billList.get(position).getNames();
-           priceProduct += billList.get(position).getPrice();
+            DecimalFormat formatter = new DecimalFormat("###,###,###");
+            String priceFormat = formatter.format(Integer.valueOf(billList.get(position).getPrice()))+" đ";
+           priceProduct += priceFormat;
            amountProduct += billList.get(position).getAmount();
         }
         name.setText(nameProduct);
         amount.setText(amountProduct);
         price.setText(priceProduct);
+        employee.setText(fullName);
         DecimalFormat formatter = new DecimalFormat("###,###,###");
         String totalFormat = formatter.format(billList.get(position).getTotal())+" đ";
         total.setText(totalFormat);

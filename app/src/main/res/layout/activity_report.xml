@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/_10sdp"
-                android:text="Danh sách giao dịch"
+                android:text="@string/transaction_list"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_20sdp"
                 android:textStyle="bold" />
@@ -65,7 +65,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1.2"
                             android:gravity="center"
-                            android:text="Ngày giao dich" />
+                            android:text="@string/date" />
 
                         <TextView
                             android:layout_width="1dp"
@@ -77,7 +77,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="Mã đơn hàng" />
+                            android:text="@string/IDBill" />
 
                         <TextView
                             android:layout_width="1dp"
@@ -89,7 +89,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1.5"
                             android:gravity="center"
-                            android:text="Tổng giá nhập" />
+                            android:text="@string/total_import" />
 
                         <TextView
                             android:layout_width="1dp"
@@ -101,7 +101,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1.5"
                             android:gravity="center"
-                            android:text="Tổng giá bán" />
+                            android:text="@string/total_price" />
                     </LinearLayout>
 
                     <ListView
@@ -126,7 +126,7 @@
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:text="Số lượng giao dịch: "
+                    android:text="@string/Number_of_transactions"
                     android:textSize="@dimen/_13sdp" />
 
                 <TextView
@@ -153,7 +153,7 @@
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:gravity="right"
-                    android:text="Tổng lãi: "
+                    android:text="@string/total_interest"
                     android:textSize="@dimen/_13sdp" />
 
                 <TextView

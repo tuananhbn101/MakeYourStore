@@ -22,7 +22,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MakeYourStore">
-        <activity android:name="login.Create_Acount"></activity>
+        <activity android:name="Activity.Choose_Image"></activity>
+
+        <activity android:name="login.Create_Acount" />
         <activity android:name="Activity.Admin_Main_Activity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -40,7 +42,6 @@
         <activity android:name="login.Create_A_New_Account" />
         <activity android:name="Activity.Find_Product" />
         <activity android:name="Activity.List_Image_Choose" />
-        <activity android:name=".Change_Password_Fragment" />
         <activity android:name="Activity.Add_Product" />
         <activity android:name="login.Login_Activity">
             <intent-filter>
@@ -49,9 +50,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Activity.Employee_Main_Activity">
-
-        </activity>
+        <activity android:name="Activity.Employee_Main_Activity"></activity>
     </application>
 
 </manifest>

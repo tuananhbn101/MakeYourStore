@@ -68,6 +68,12 @@ public class Adaptor_Order_Product extends RecyclerView.Adapter<Adaptor_Order_Pr
                 clickOrderProduct.clickBtnDelete(product.getID(),position);
             }
         });
+        holder.tvAmout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickOrderProduct.clickAmount(product.getID(),position);
+            }
+        });
     }
 
     @Override

@@ -59,6 +59,11 @@ public class Change_Product_Information extends AppCompatActivity {
             public void clickBtnDelete(int id, int position) {
                 deleteProduct(id, position);
             }
+
+            @Override
+            public void clickAmount(int id, int position) {
+
+            }
         });
     }
 

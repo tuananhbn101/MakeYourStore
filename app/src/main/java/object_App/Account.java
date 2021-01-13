@@ -12,19 +12,8 @@ public class Account {
     private String phone;
     private String email;
     private String homeTown;
+    private String avatar;
     private int permission;
-
-    public Account(int ID, String userName, String password, String fullName, String dateOfBirth, String phone, String email, String homeTown, int permission) {
-        this.ID = ID;
-        this.userName = userName;
-        this.password = password;
-        this.fullName = fullName;
-        this.dateOfBirth = dateOfBirth;
-        this.phone = phone;
-        this.email = email;
-        this.homeTown = homeTown;
-        this.permission = permission;
-    }
 
     public int getID() {
         return ID;
@@ -90,11 +79,32 @@ public class Account {
         this.homeTown = homeTown;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     public int getPermission() {
         return permission;
     }
 
     public void setPermission(int permission) {
+        this.permission = permission;
+    }
+
+    public Account(int ID, String userName, String password, String fullName, String dateOfBirth, String phone, String email, String homeTown, String avatar, int permission) {
+        this.ID = ID;
+        this.userName = userName;
+        this.password = password;
+        this.fullName = fullName;
+        this.dateOfBirth = dateOfBirth;
+        this.phone = phone;
+        this.email = email;
+        this.homeTown = homeTown;
+        this.avatar = avatar;
         this.permission = permission;
     }
 

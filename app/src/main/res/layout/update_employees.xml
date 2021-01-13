@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:background="@drawable/border_cancle"
-        android:layout_height="@dimen/_100sdp">
+        android:layout_height="@dimen/_120sdp">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="0.5"
@@ -21,7 +21,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:orientation="vertical"
             android:layout_height="wrap_content">
@@ -33,7 +33,31 @@
                     android:layout_width="0dp"
                     android:layout_weight="0.75"
                     android:layout_height="wrap_content"
+                    android:text="ID"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":  "/>
+                <TextView
+                    android:id="@+id/tvIDAccount"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="5"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.75"
+                    android:layout_height="wrap_content"
                     android:text="@string/full_name"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":  "/>
                 <TextView
                     android:id="@+id/tvNameAccount"
                     android:layout_width="0dp"
@@ -50,7 +74,10 @@
                     android:layout_weight="0.75"
                     android:layout_height="wrap_content"
                     android:text="@string/date_of_birth"/>
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":  "/>
                 <TextView
                     android:id="@+id/tvDateAcount"
                     android:layout_width="0dp"
@@ -67,6 +94,10 @@
                     android:layout_weight="0.75"
                     android:layout_height="wrap_content"
                     android:text="@string/phone"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":  "/>
                 <TextView
                     android:id="@+id/tvPhoneAccount"
                     android:layout_width="0dp"
@@ -85,10 +116,11 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:textColor="@color/white"
-                    android:layout_margin="@dimen/_5sdp"
+                   android:layout_marginTop="@dimen/_5sdp"
                     android:background="@color/purple_200"
                     android:layout_height="@dimen/_20sdp"
-                    android:text="Xem thông tin"/>
+                    android:text="@string/view_infor"/>
+
                 <TextView
                     android:id="@+id/btnDeleteAccount"
                     android:layout_width="0dp"
@@ -96,9 +128,10 @@
                     android:layout_weight="1"
                     android:textColor="@color/white"
                     android:gravity="center"
-                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
                     android:layout_height="@dimen/_20sdp"
-                    android:text="Xóa tài khoản"/>
+                    android:text="@string/delete"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

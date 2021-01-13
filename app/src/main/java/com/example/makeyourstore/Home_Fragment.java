@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import com.example.makeyourstore.databinding.ActivityHomeFragmentBinding;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -159,11 +161,18 @@ public class Home_Fragment extends Fragment{
                 addProduct(id);
             }
         });
+        String [] name = new String[productList.size()];
+        for(int i = 0;i<productList.size();i++){
+            name[i] = productList.get(i).getNameProduct();
+        }
+        ArrayAdapter adapterPrimaryLanguage = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, name);
+        binding.etNameProduct.setAdapter(adapterPrimaryLanguage);
         binding.btnFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(),Find_Product.class);
                 intent.putExtra("nameProduct",binding.etNameProduct.getText().toString());
+                intent.putExtra("ID",employeeMainActivity.getID()+"");
                 startActivity(intent);
             }
         });
@@ -185,8 +194,10 @@ public class Home_Fragment extends Fragment{
         TextView producer = dialog.findViewById(R.id.producer);
         producer.setText(productList.get(idProduct).getProducer());
         TextView price = dialog.findViewById(R.id.price);
-        price.setText(productList.get(idProduct).getPrice() + "");
-        TextView btnThemGioHang = dialog.findViewById(R.id.themGioHang);
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        String price1 = formatter.format(productList.get(idProduct).getPrice())+" đ";
+        price.setText(price1);
+        ImageView btnThemGioHang = dialog.findViewById(R.id.themGioHang);
         btnThemGioHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -204,30 +215,36 @@ public class Home_Fragment extends Fragment{
         orderProductList = new ArrayList<>();
         orderProductList = sqLite_manage_your_store.getAllOrderPrduct();
         int dem =0;
+        int soLuong = 0;
         for (Product product : productList
         ) {
-            if(product.getID() == id)
-                for (Product product1: orderProductList
+            if(product.getID() == id && product.getAmount()>0) {
+                soLuong++;
+                for (Product product1 : orderProductList
                 ) {
-                    if(product.getNameProduct().equals(product1.getNameProduct())){
+                    if (product.getNameProduct().equals(product1.getNameProduct())) {
                         dem++;
-                        product1.setAmount(product1.getAmount()+1);
+                        product1.setAmount(product1.getAmount() + 1);
                         sqLite_manage_your_store.updateOrderProduct(product1);
-                        Toast.makeText(getContext(),"Thêm thành công",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "Thêm thành công", Toast.LENGTH_LONG).show();
                     }
                 }
-
+            }
         }
         if(dem==0){
             for (Product product : productList
             ) {
-                if (product.getID() == id) {
+                if (product.getID() == id && product.getAmount()>0) {
+                    soLuong++;
                     product.setAmount(1);
                     sqLite_manage_your_store.insertOrderProduct(product);
                     Toast.makeText(getContext(),"Thêm thành công",Toast.LENGTH_LONG).show();
                     employeeMainActivity.setCountProduct(employeeMainActivity.getMcount()+1);
                 }
             }
+        }
+        if(soLuong==0){
+                Toast.makeText(getContext(),"Hết hàng",Toast.LENGTH_LONG).show();
         }
     }
 }

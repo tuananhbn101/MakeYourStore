@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_200sdp" android:layout_height="@dimen/_200sdp"
+    android:background="#527C8F">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update_Amount"
+        android:textSize="@dimen/_20sdp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="@dimen/_15sdp"
+        android:text="@string/enter_amount"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:layout_marginLeft="@dimen/_10sdp"/>
+    <EditText
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_100sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:id="@+id/etAmountt"
+        android:textColor="@color/white"
+        android:inputType="number"
+        android:singleLine="true"/>
+    <TextView
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/update"
+        android:id="@+id/btnCapNhat1"
+        android:textSize="@dimen/_15sdp"
+        android:textColor="@color/white"
+        android:background="@color/login_hint_color"
+        android:padding="@dimen/_5sdp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_20sdp"/>
+</RelativeLayout>

@@ -1,20 +1,33 @@
 package login
 
 import Activity.Admin_Main_Activity
+import android.Manifest
 import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils.isEmpty
+import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.makeyourstore.R
 import com.example.makeyourstore.SQLite_Manage_Your_Store
-import com.google.android.gms.common.util.CollectionUtils.isEmpty
-import com.gun0912.tedpermission.util.ObjectUtils.isEmpty
-import kotlinx.android.synthetic.main.activity_create__acount.*
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.TedPermission
+import gun0912.tedbottompicker.TedBottomPicker
+import gun0912.tedbottompicker.TedBottomPicker.OnImageSelectedListener
+import kotlinx.android.synthetic.main.activity_create__a__new__account.*
+import kotlinx.android.synthetic.main.activity_create__acount.btnCancle
+import kotlinx.android.synthetic.main.activity_create__acount.btnCreateAccount
+import kotlinx.android.synthetic.main.activity_create__acount.etAnswer
+import kotlinx.android.synthetic.main.activity_create__acount.etNewFullName
+import kotlinx.android.synthetic.main.activity_create__acount.etNewPassword
+import kotlinx.android.synthetic.main.activity_create__acount.etNewPhone
+import kotlinx.android.synthetic.main.activity_create__acount.etNewUserName
+import kotlinx.android.synthetic.main.activity_create__acount.etQuestion
+import kotlinx.android.synthetic.main.activity_create__acount.tvDateOfBirth
 import object_App.Account
+import java.io.IOException
 
 class Create_Acount : AppCompatActivity() {
     var sqLite_manage_your_store: SQLite_Manage_Your_Store? = null
@@ -38,6 +51,7 @@ class Create_Acount : AppCompatActivity() {
                 startActivity(intent)
             }
         })
+        ivAvatar.setOnClickListener(View.OnClickListener { requestPermissions() })
         btnCreateAccount.setOnClickListener(View.OnClickListener {
             var dem = 0
             val userName: String = etNewUserName.text.toString()
@@ -47,8 +61,9 @@ class Create_Acount : AppCompatActivity() {
             val phone: String = etNewPhone.text.toString()
             val question: String = etQuestion.text.toString()
             val answer: String = etAnswer.text.toString()
-            val newAccount = Account(0, userName, password, fullName, dateOfBirth, phone, question, answer, 1)
-            if (userName.isEmpty() || password.isEmpty() || fullName.isEmpty() || dateOfBirth.isEmpty()  || question.isEmpty() || answer.isEmpty()) {
+            val avatar: String = tvThemAnh.getText().toString()
+            val newAccount = Account(0, userName, password, fullName, dateOfBirth, phone, question, answer,avatar ,1)
+            if (userName.isEmpty() || password.isEmpty() || fullName.isEmpty() || dateOfBirth.isEmpty() || question.isEmpty() || answer.isEmpty()) {
                 Toast.makeText(baseContext, "Bạn nhập thiếu thông tin", Toast.LENGTH_LONG).show()
             } else if (newAccount.checkUserName() && newAccount.checkPassword()) {
                 accountList = sqLite_manage_your_store!!.allAccounts
@@ -69,5 +84,37 @@ class Create_Acount : AppCompatActivity() {
             if (newAccount.checkUserName() == false) etNewUserName.setError("Tài khoản có từ 6 ký tự bao gồm chữ hoa, chữ thường và số")
             if (newAccount.checkPassword() == false) etNewPassword.setError("Mật khẩu có từ 8 ký tự bao gồm chữ hoa, chữ thường và số")
         })
+    }
+    private fun requestPermissions() {
+        val permissionlistener: PermissionListener = object : PermissionListener {
+            override fun onPermissionGranted() {
+                opentImagePicker()
+            }
+
+            override fun onPermissionDenied(deniedPermissions: List<String>) {
+                Toast.makeText(applicationContext, "Permission Denied\n$deniedPermissions", Toast.LENGTH_SHORT).show()
+            }
+        }
+        TedPermission.with(this)
+                .setPermissionListener(permissionlistener)
+                .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
+                .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+                .check()
+    }
+
+    private fun opentImagePicker() {
+        val listener = OnImageSelectedListener { uri ->
+            try {
+                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, uri)
+                ivAvatar.setImageBitmap(bitmap)
+                tvThemAnh.setText(uri.path)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+        val tedBottomPicker = TedBottomPicker.Builder(applicationContext)
+                .setOnImageSelectedListener(listener)
+                .create()
+        tedBottomPicker.show(supportFragmentManager)
     }
 }

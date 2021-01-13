@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.makeyourstore.R;
 import com.example.makeyourstore.SQLite_Manage_Your_Store;
@@ -34,6 +35,7 @@ public class Find_Product extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_find__product);
         Intent intent = getIntent();
         String nameProduct = intent.getStringExtra("nameProduct");
+        String id = intent.getStringExtra("ID");
         productList = new ArrayList<>();
         sqLite_manage_your_store = new SQLite_Manage_Your_Store(getApplicationContext());
         productList = sqLite_manage_your_store.getAllPrduct();
@@ -53,7 +55,9 @@ public class Find_Product extends AppCompatActivity {
             public void clickProductImage(String image) {
                 productListFind.get(Integer.valueOf(image)).setAmount(1);
                 sqLite_manage_your_store.insertOrderProduct(productListFind.get(Integer.valueOf(image)));
+                Toast.makeText(getApplicationContext(),"Thêm thành công",Toast.LENGTH_LONG).show();
                 Intent intent1 = new Intent(getApplicationContext(), Employee_Main_Activity.class);
+                intent1.putExtra("ID",id);
                 startActivity(intent1);
             }
         });
@@ -72,6 +76,14 @@ public class Find_Product extends AppCompatActivity {
                 RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1, RecyclerView.VERTICAL, false);
                 binding.rvFindProduct.setLayoutManager(layoutManager);
                 binding.rvFindProduct.setAdapter(adapter_listView);
+            }
+        });
+        binding.btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(getApplicationContext(), Employee_Main_Activity.class);
+                intent1.putExtra("ID",id);
+                startActivity(intent1);
             }
         });
     }

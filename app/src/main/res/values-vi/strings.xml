@@ -58,4 +58,24 @@
     <string name="manage_employee">Quản lý nhân viên</string>
     <string name="price_import">Giá nhập</string>
     <string name="full_name">Họ và tên</string>
+    <string name="add_image">Thêm ảnh</string>
+    <string name="transaction_list">Danh sách giao dịch</string>
+    <string name="date">Ngày</string>
+    <string name="IDBill">Mã đơn hàng</string>
+    <string name="total_import">Tổng giá nhập</string>
+    <string name="total_price">Tổng giá bán</string>
+    <string name="Number_of_transactions">"Số lượng giao dịch: "</string>
+    <string name="total_interest">"Tổng lãi: "</string>
+    <string name="Change_Image">Thay đổi hình ảnh</string>
+    <string name="choose_image">Chọn ảnh</string>
+    <string name="update">Cập nhật</string>
+    <string name="update_Amount">Số lượng mua</string>
+    <string name="enter_amount">"Nhập số lượng: "</string>
+    <string name="bill">Hóa đơn</string>
+    <string name="TransactionHistory">Lịch sử giao dịch</string>
+    <string name="No_staff_found">Không tìm thấy nhân viên</string>
+    <string name="link">Vui lòng nhấp vào tab Thêm -> Thêm nhân viên</string>
+    <string name="no_product_found">Không tìm thấy sản phẩm nào</string>
+    <string name="link2">Vui lòng nhấp vào tab Thêm -> Thêm sản phẩm</string>
+    <string name="view_infor">Xem thông tin</string>
 </resources>
